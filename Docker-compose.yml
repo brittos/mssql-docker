@@ -1,15 +1,16 @@
-  mssql:
-    container_name: mssql-db
-    hostname: mssql-db
+version: '3.8'
+services:
+  sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
     environment:
-      ACCEPT_EULA: 'Y'
-      MSSQL_SA_PASSWORD: 'Passw0rd'
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Pmc489762"
       MSSQL_DATA_DIR: /var/opt/mssql/data
-      MSSQL_PID: 'Developer' 
+      MSSQL_PID: 'Developer'
       MSSQL_TCP_PORT: 1433
     user: root
-    ports: 
+    ports:
       - "1433:1433"
     volumes:
       - ./data:/var/opt/mssql/data
